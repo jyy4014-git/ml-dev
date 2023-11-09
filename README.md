@@ -21,3 +21,10 @@ main 실행 -> data_manager.py 로 데이터 수집 및 처리 -> 환경모듈�
 3. 탐험해서 지연보상이 발생하지 않는 경우 첫 단계로 돌아간다. 에포크가 종료되면 환경을 초기화하여 Epsilon 비율에 따라탐험/신경망 행동 중 결정한다
 4. 신경망 학습으로 매수/매도를 결정하고 지연보상이 발생하면 신경망 업데이트한다. 그 외엔 에포크 진행 여부에 따라 탐험/신경망 행동 중 결정한다
 5. 강화학습 종료 후 나오는 그래프로 모델의 성능을 확인하며 파라미터 조절한다
+
+# 프로그램 소스코드
+- main.py로 프로그램을 실행
+- data_manager.py 에서 Redis로 실시간 주식 데이터 연동 및 전처리까지 완료
+- ml-dev/quantylab/rltrader/networks/networks_pytorch.py 에서 cnn 신경망 구성
+- quantylab/rltrader/agent.py 에서 학습된 모델이 매수/매도/홀딩 한다
+- 하루의 거래 결과가 좋지 않은 경우 quantylab/rltrader/learners.py 에서 가치신경망, 정책신경망을 a3c로 학습
